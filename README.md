@@ -1,5 +1,4 @@
-# AGIF-slowmister_Secuirty
-<article class="markdown-body entry-content container-lg" itemprop="text"><h1 tabindex="-1" dir="auto"><a id="user-content--AGIF-smart-contractsC" class="anchor" aria-hidden="true" href="#-AGIF-smart-contractsC"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>💰 AGIF Smart Contracts</h1>
+<article class="markdown-body entry-content container-lg" itemprop="text"><h1 tabindex="-1" dir="auto"><a id="user-content--AGIF-smart-contracts" class="anchor" aria-hidden="true" href="#-AGIF-smart-contracts"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>💰 AGIF Smart Contracts</h1>
 <p dir="auto"><a href="https://coveralls.io/github/trusttoken/smart-contracts?branch=main" rel="nofollow"><img src="https://camo.githubusercontent.com/48a0b5af1d537e919eb0015c00c660e2485d1a12c1d2123ea08393d59b4c8fec/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f7472757374746f6b656e2f736d6172742d636f6e7472616374732f62616467652e7376673f6272616e63683d6d61696e" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/trusttoken/smart-contracts/badge.svg?branch=main" style="max-width: 100%;"></a></p>
 <h2 tabindex="-1" dir="auto"><a id="user-content--table-of-contents" class="anchor" aria-hidden="true" href="#-table-of-contents"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>🗂 Table of Contents</h2>
 <ul dir="auto">
@@ -11,19 +10,19 @@
 <li><a href="#-Addresses"><g-emoji class="g-emoji" alias="station" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f689.png">🚉</g-emoji> Addresses</a></li>
 </ul>
 <h1 tabindex="-1" dir="auto"><a id="user-content--intro" class="anchor" aria-hidden="true" href="#-intro"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><g-emoji class="g-emoji" alias="bulb" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png">💡</g-emoji> Intro</h1>
-<p dir="auto">AGIF is a decentralized protocol for uncollateralized lending. This repository contains all smart contracts used across AGIF ecosystem. Contracts are written in Solidity. All key functionalities are tested with attached TypeScript test suite. Apart from contracts and tests repository contains scripts used for deployment and maintenance of existing infrastructure.</p>
+<p dir="auto">AGIF-smart-contracts is a decentralized protocol for uncollateralized lending. This repository contains all smart contracts used across AGIF ecosystem. Contracts are written in Solidity. All key functionalities are tested with attached TypeScript test suite. Apart from contracts and tests repository contains scripts used for deployment and maintenance of existing infrastructure.</p>
 <h1 tabindex="-1" dir="auto"><a id="user-content--projects" class="anchor" aria-hidden="true" href="#-projects"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><g-emoji class="g-emoji" alias="paperclip" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4ce.png">📎</g-emoji> Projects</h1>
 <p dir="auto">Repository consists of following sub-projects.</p>
-<h2 tabindex="-1" dir="auto"><a id="user-content-AGIF" class="anchor" aria-hidden="true" href="#AGIF"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>AGIF</h2>
-<p dir="auto">Core AGIF smart contracts. These contracts are responsible for establishing main protocol functionalities like creating loans, rating loans, rewarding raters etc. This repository also contains contracts used for TRU liquidity mining program.</p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-AGIF-smart-contractsC" class="anchor" aria-hidden="true" href="#AGIF-smart-contractsC"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>AGIF-smart-contracts</h2>
+<p dir="auto">Core AGIF-smart-contractsC smart contracts. These contracts are responsible for establishing main protocol functionalities like creating loans, rating loans, rewarding raters etc. This repository also contains contracts used for TRU liquidity mining program.</p>
 <h2 tabindex="-1" dir="auto"><a id="user-content-true-currencies" class="anchor" aria-hidden="true" href="#true-currencies"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>True Currencies</h2>
-<p dir="auto">Contracts used for True Currencies - a set of fully-backed stablecoins. True Currencies feature tokens pegged to USD, AUD, HKD, GBP and CAD.</p>
+<p dir="auto">Contracts used for True Currencies - a set of fully-backed stablecoins. True Currencies feature tokens pegged to USD,.</p>
 <h2 tabindex="-1" dir="auto"><a id="user-content-governance" class="anchor" aria-hidden="true" href="#governance"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Governance</h2>
-<p dir="auto">Contracts implementing AGIF governance. Sub-project features both governor contract and all contracts implementing voting mechanisms.</p>
+<p dir="auto">Contracts implementing AGIF-smart-contracts governance. Sub-project features both governor contract and all contracts implementing voting mechanisms.</p>
 <h2 tabindex="-1" dir="auto"><a id="user-content-proxy" class="anchor" aria-hidden="true" href="#proxy"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Proxy</h2>
-<p dir="auto">Contracts and utilities allowing to use unified proxy structure across whole AGIF ecosystem.</p>
+<p dir="auto">Contracts and utilities allowing to use unified proxy structure across whole AGIF-smart-contracts ecosystem.</p>
 <h2 tabindex="-1" dir="auto"><a id="user-content-trust-token" class="anchor" aria-hidden="true" href="#trust-token"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Trust Token</h2>
-<p dir="auto">Contracts implementing TRU - AGIF ecosystem governance token.</p>
+<p dir="auto">Contracts implementing TRU - AGIF-smart-contracts ecosystem governance token.</p>
 <h2 tabindex="-1" dir="auto"><a id="user-content-true-gold" class="anchor" aria-hidden="true" href="#true-gold"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>True Gold</h2>
 <p dir="auto">Smart contracts implementing True Gold - a synthetic gold on Ethereum blockchain.</p>
 <h1 tabindex="-1" dir="auto"><a id="user-content--installation" class="anchor" aria-hidden="true" href="#-installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><g-emoji class="g-emoji" alias="toolbox" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f9f0.png">🧰</g-emoji> Installation</h1>
@@ -166,76 +165,40 @@ it may take longer for tests to complete.</p>
 </thead>
 <tbody>
 <tr>
-<td align="center">TrueUSD</td>
-<td align="center"><a href="https://etherscan.io/address/0x0000000000085d4780B73119b644AE5ecd22b376" rel="nofollow"><code>0x0000000000085d4780B73119b644AE5ecd22b376</code></a></td>
+<td align="center">Staked AGIF-smart-contracts</td>
+<td align="center"><a href="https://etherscan.io/address/0x7cbE4683dd069981e3f7c3e609a92C2c0aCE7FA2" rel="nofollow"><code>0x7cbE4683dd069981e3f7c3e609a92C2c0aCE7FA2</code></a></td>
 </tr>
 <tr>
-<td align="center">TrueGBP</td>
-<td align="center"><a href="https://etherscan.io/address/0x00000000441378008EA67F4284A57932B1c000a5" rel="nofollow"><code>0x00000000441378008EA67F4284A57932B1c000a5</code></a></td>
-</tr>
-<tr>
-<td align="center">TrueAUD</td>
-<td align="center"><a href="https://etherscan.io/address/0x00006100f7090010005f1bd7ae6122c3c2cf0090" rel="nofollow"><code>0x00006100f7090010005f1bd7ae6122c3c2cf0090</code></a></td>
-</tr>
-<tr>
-<td align="center">TrueCAD</td>
-<td align="center"><a href="https://etherscan.io/address/0x00000100F2A2bd000715001920eB70D229700085" rel="nofollow"><code>0x00000100F2A2bd000715001920eB70D229700085</code></a></td>
-</tr>
-<tr>
-<td align="center">TrueHKD</td>
-<td align="center"><a href="https://etherscan.io/address/0x0000852600CEB001E08e00bC008be620d60031F2" rel="nofollow"><code>0x0000852600CEB001E08e00bC008be620d60031F2</code></a></td>
-</tr>
-<tr>
-<td align="center">Registry</td>
-<td align="center"><a href="https://etherscan.io/address/0x0000000000013949f288172bd7e36837bddc7211" rel="nofollow"><code>0x0000000000013949f288172bd7e36837bddc7211</code></a></td>
-</tr>
-<tr>
-<td align="center">AGIF token</td>
-<td align="center"><a href="https://etherscan.io/address/0x4C19596f5aAfF459fA38B0f7eD92F11AE6543784" rel="nofollow"><code>0x4C19596f5aAfF459fA38B0f7eD92F11AE6543784</code></a></td>
-</tr>
-<tr>
-<td align="center">Staked AGIF</td>
-<td align="center"><a href="https://etherscan.io/address/0x23696914Ca9737466D8553a2d619948f548Ee424" rel="nofollow"><code>0x23696914Ca9737466D8553a2d619948f548Ee424</code></a></td>
-</tr>
-<tr>
-<td align="center">AGIF Pool</td>
-<td align="center"><a href="https://etherscan.io/address/0xa1e72267084192Db7387c8CC1328fadE470e4149" rel="nofollow"><code>0xa1e72267084192Db7387c8CC1328fadE470e4149</code></a></td>
+<td align="center">AGIF-smart-contracts Pool</td>
+<td align="center"><a href="https://etherscan.io/address/0x7cbE4683dd069981e3f7c3e609a92C2c0aCE7FA2" rel="nofollow"><code>0x7cbE4683dd069981e3f7c3e609a92C2c0aCE7FA2</code></a></td>
 </tr>
 <tr>
 <td align="center">TrueLender2</td>
-<td align="center"><a href="https://etherscan.io/address/0xa606dd423dF7dFb65Efe14ab66f5fDEBf62FF583" rel="nofollow"><code>0xa606dd423dF7dFb65Efe14ab66f5fDEBf62FF583</code></a></td>
+<td align="center"><a href="https://etherscan.io/address/0x57040B65022c24676A41e646E6eCC47f4332a62D" rel="nofollow"><code>0x57040B65022c24676A41e646E6eCC47f4332a62D</code></a></td>
 </tr>
 <tr>
 <td align="center">TrueRatingAgency</td>
-<td align="center"><a href="https://etherscan.io/address/0x05461334340568075bE35438b221A3a0D261Fb6b" rel="nofollow"><code>0x05461334340568075bE35438b221A3a0D261Fb6b</code></a></td>
+<td align="center"><a href="https://etherscan.io/address/0x3bff495b11d918a736a42b53ab689900e6324cd2" rel="nofollow"><code>0x3bff495b11d918a736a42b53ab689900e6324cd2</code></a></td>
 </tr>
 <tr>
 <td align="center">LoanFactory2</td>
-<td align="center"><a href="https://etherscan.io/address/0x69d844fB5928d0e7Bc530cC6325A88e53d6685BC" rel="nofollow"><code>0x69d844fB5928d0e7Bc530cC6325A88e53d6685BC</code></a></td>
+<td align="center"><a href="https://etherscan.io/address/0xc7a117892855B1708fF8eF4Fd5eDEAc774dBE432" rel="nofollow"><code>0xc7a117892855B1708fF8eF4Fd5eDEAc774dBE432</code></a></td>
 </tr>
 <tr>
-<td align="center">AGIF LP Farm</td>
-<td align="center"><a href="https://etherscan.io/address/0x8FD832757F58F71BAC53196270A4a55c8E1a29D9" rel="nofollow"><code>0x8FD832757F58F71BAC53196270A4a55c8E1a29D9</code></a></td>
-</tr>
-<tr>
-<td align="center">Uniswap TUSD/TFI-LP Farm</td>
-<td align="center"><a href="https://etherscan.io/address/0xf8F14Fbb93fa0cEFe35Acf7e004fD4Ef92d8315a" rel="nofollow"><code>0xf8F14Fbb93fa0cEFe35Acf7e004fD4Ef92d8315a</code></a></td>
-</tr>
-<tr>
-<td align="center">Uniswap ETH/TRU Farm</td>
-<td align="center"><a href="https://etherscan.io/address/0xED45Cf4895C110f464cE857eBE5f270949eC2ff4" rel="nofollow"><code>0xED45Cf4895C110f464cE857eBE5f270949eC2ff4</code></a></td>
+<td align="center">AGIF-smart-contracts LP Farm</td>
+<td align="center"><a href="https://etherscan.io/address/0x233707e3e40f124b770Ee0adFA1Ed97cEe2Ba274" rel="nofollow"><code>0x233707e3e40f124b770Ee0adFA1Ed97cEe2Ba274</code></a></td>
 </tr>
 <tr>
 <td align="center">tfTUSD Distributor</td>
-<td align="center"><a href="https://etherscan.io/address/0xfB8d918428373f766B352564b70d1DcC1e3b6383" rel="nofollow"><code>0xfB8d918428373f766B352564b70d1DcC1e3b6383</code></a></td>
+<td align="center"><a href="https://etherscan.io/address/0x371Cec099923Bb375630189D58090386Ed0D3257" rel="nofollow"><code>0x371Cec099923Bb375630189D58090386Ed0D3257</code></a></td>
 </tr>
 <tr>
 <td align="center">Uni TUSD/tfTUSD Distributor</td>
-<td align="center"><a href="https://etherscan.io/address/0xCc527F4f8c76dB1EBA217d001cCc6f8bD9e0D86E" rel="nofollow"><code>0xCc527F4f8c76dB1EBA217d001cCc6f8bD9e0D86E</code></a></td>
+<td align="center"><a href="https://etherscan.io/address/0x533Dc98B9aC4Af8f6d280eD1C4Bc48d4b9Fd3370" rel="nofollow"><code>0x533Dc98B9aC4Af8f6d280eD1C4Bc48d4b9Fd3370</code></a></td>
 </tr>
 <tr>
 <td align="center">Uni ETH/TRU Distributor</td>
-<td align="center"><a href="https://etherscan.io/address/0x8EFF7d12118Fd599772D6448CDAd11D5fb2568e0" rel="nofollow"><code>0x8EFF7d12118Fd599772D6448CDAd11D5fb2568e0</code></a></td>
+<td align="center"><a href="https://etherscan.io/address/0xCAEDd48B7B4fC1960008f31046b0955A84f405FC" rel="nofollow"><code>0xCAEDd48B7B4fC1960008f31046b0955A84f405FC</code></a></td>
 </tr>
 <tr>
 <td align="center">RatingAgencyV2Distributor</td>
@@ -257,10 +220,10 @@ it may take longer for tests to complete.</p>
 </table>
 <h1 tabindex="-1" dir="auto"><a id="user-content-️-contact" class="anchor" aria-hidden="true" href="#️-contact"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>☎️ Contact</h1>
 <ul dir="auto">
-<li><a href="https://www.winwinwolrd.com/" rel="nofollow">AGIF main website</a></li>
-<li><a href="https://twitter.com/RosePhilli98231" rel="nofollow">AGIF Twitter</a></li>
-<li><a href="https://discord.com/invite/3tMyMqyqDj" rel="nofollow">Join AGIF Discord</a></li>
-<li><a href="https://app.winwinwolrd.com/dashboard?utm_source=marketing_site&amp;utm_medium=launch_app" rel="nofollow">AGIF app</a></li>
+<li><a href="https://www.winwinwolrd.com/" rel="nofollow">AGIF-smart-contracts main website</a></li>
+<li><a href="https://twitter.com/RosePhilli98231" rel="nofollow">AGIF-smart-contracts Twitter</a></li>
+<li><a href="https://discord.com/invite/3tMyMqyqDj" rel="nofollow">Join AGIF-smart-contracts Discord</a></li>
+<li><a href="https://app.winwinwolrd.com/dashboard?utm_source=marketing_site&amp;utm_medium=launch_app" rel="nofollow">AGIF-smart-contracts app</a></li>
 <li><a href="https://docs.winwinwolrd.com/faq/" rel="nofollow">FAQ</a></li>
 </ul>
 </article>
