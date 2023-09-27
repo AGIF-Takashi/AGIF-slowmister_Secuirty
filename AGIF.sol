@@ -1,3 +1,11 @@
+/**
+ *Submitted for verification at PolygonScan.com on 2023-09-26
+*/
+
+/**
+ *Submitted for verification at PolygonScan.com on 2023-09-26
+*/
+
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
@@ -299,17 +307,17 @@ contract RiskOrder {
     uint256 public riskLevelPre = 0;
 
     struct RiskLevel {
-        uint256 open; 
-        uint256 start; 
-        uint256 next; 
-        uint256 close;  
+        uint256 open;  // 开启监控的数量
+        uint256 start;  // 出现风险的数量
+        uint256 next;  // 下个风险的数量
+        uint256 close;  // 关闭风险的数量
     }
 
     struct Risk {
-        uint256 startTime; 
-        uint256 riskNum;  
-        bool riskFreeze;  
-        bool riskLevelNext; 
+        uint256 startTime;  // 风险开始时间 结束会归零
+        uint256 riskNum;    //触发风险次数
+        bool riskFreeze;   //是否开启风险冻结  触点1
+        bool riskLevelNext; // 是否到50%风险等级  触点2
     }
 
     Risk private risk;
@@ -485,7 +493,7 @@ abstract contract Ownable is Context {
     }
 }
 
-contract ADI is RiskOrder, Ownable {
+contract AGIF is RiskOrder, Ownable {
     using SafeMath for uint256;
 
     uint private unlocked = 1;
@@ -497,40 +505,39 @@ contract ADI is RiskOrder, Ownable {
         unlocked = 1;
     }
 
-    address public constant defaultRefer = 0x880075B511b0e88D354c197f1f8C1FF44B9C089F;
+     
+    address public constant defaultRefer = 0xd7681771eE1C51201D48b3CDaA936c5B86d4d0b4;
 
     uint256 private constant projectPartyPercents = 90;
-    address public constant projectParty = 0xdB72168d4a200b5aFe04Cf10eBf47Ee93cd08555;
+    address public constant projectParty = 0x3Bff495b11D918A736a42b53ab689900E6324Cd2;
 
     uint256 private constant marketECOPercents = 60;
-    address public constant marketECO = 0xe2433b048beB2B078b05e47897dd1314Ff0dd801;
+    address public constant marketECO = 0x57040B65022c24676A41e646E6eCC47f4332a62D;
 
     uint256 private constant team1Percents = 10;
-    address public constant team1 = 0xe2433b048beB2B078b05e47897dd1314Ff0dd801;
+    address public constant team1 = 0xc7a117892855B1708fF8eF4Fd5eDEAc774dBE432;
     uint256 private constant team2Percents = 10;
-    address public constant team2 = 0xe2433b048beB2B078b05e47897dd1314Ff0dd801;
+    address public constant team2 = 0x233707e3e40f124b770Ee0adFA1Ed97cEe2Ba274;
     uint256 private constant team3Percents = 10;
-    address public constant team3 = 0xe2433b048beB2B078b05e47897dd1314Ff0dd801;
+    address public constant team3 = 0x371Cec099923Bb375630189D58090386Ed0D3257;
     uint256 private constant team4Percents = 10;
-    address public constant team4 = 0xe2433b048beB2B078b05e47897dd1314Ff0dd801;
+    address public constant team4 = 0x533Dc98B9aC4Af8f6d280eD1C4Bc48d4b9Fd3370;
     uint256 private constant team5Percents = 10;
-    address public constant team5 = 0xe2433b048beB2B078b05e47897dd1314Ff0dd801;
+    address public constant team5 = 0xCAEDd48B7B4fC1960008f31046b0955A84f405FC;
 
 
-    uint256 private constant minDeposit = 100e6; //usdt
+    uint256 private constant minDeposit = 100e6; 
 
-    // uint256 private constant  timeStep = 1 days;
-    // uint256 private constant  timeStep = 1 seconds;
-    uint256 private constant  timeStep = 1 minutes;
+    uint256 private constant  timeStep = 1 days;
 
     uint256 private constant dayPerCycle = 3 * timeStep;
     uint256 private constant dayPerCycle2 = 6 * timeStep;
-    // uint256 private constant maxAddFreeze = 7 * timeStep + dayPerCycle; 
-    uint256 private constant maxAddFreeze = 60 * timeStep;
+    uint256 private constant maxAddFreeze = 60 * timeStep; 
     uint256 private constant referDepth = 10;
 
     uint256 private constant staticPercents = 1050;
     uint256 private constant baseDivider = 10000;
+    uint256 private constant pageSize = 15;
 
 
     uint256 private constant splitTransferPercents = 10; 
@@ -540,100 +547,105 @@ contract ADI is RiskOrder, Ownable {
     uint256[5] private levelMaxDeposit = [500e6, 1000e6, 1500e6, 2000e6, 2500e6];
     uint256[5] private levelMinDeposit = [100e6, 500e6, 1000e6, 1500e6, 2000e6];
 
-    uint256[5] private levelTeam = [0, 20, 40, 60, 120]; 
-    uint256[5] private levelInvite = [0, 5000e6, 10_000e6, 15_000e6, 50_000e6];
+    uint256[6] private gearMaxDeposit = [500e6, 1000e6, 1500e6, 2000e6, 2500e6, 2500e6];
+    uint256[6] private gearMinDeposit = [100e6, 500e6, 1000e6, 1500e6, 2000e6, 2500e6];
+
+    uint256[5] private levelTeam = [0, 20, 40, 60, 120];   
+    uint256[5] private levelInvite = [0, 5000e6, 10_000e6, 15_000e6, 50_000e6]; 
 
     uint256[7] private realPercents = [80, 70, 60, 50, 40, 30, 20]; 
-    uint256[7] private splitPercents = [20, 30, 40, 50, 50, 60, 80]; 
+    uint256[7] private splitPercents = [20, 30, 40, 50, 50, 60, 80];   
 
     struct RewardInfo {
-        uint256 freezeCapitals;
-        uint256 capitals;      
+        uint256 freezeCapitals;  
+        uint256 capitals;       
         uint256 riskCapitals;   
 
-        bool isSplitUse;   
+        bool isSplitUse;    
 
         uint256 totalStatic;  
-        uint256 level1; 
+        uint256 level1;  
         uint256 level2;  
-        uint256 level3; 
-        uint256 level45; 
-        uint256 unfreezeLevel610;  
+        uint256 level3;  
+        uint256 level45;  
+        uint256 freezeLevel610;    
+        uint256 unfreezeLevel610;    
 
-        uint256 staticSplit;
-
-
-        uint256 transferSplit; 
+        uint256 staticSplit; 
 
 
-        uint256 debtWithdraw; 
-        uint256 debtSplit; 
+        uint256 transferSplit;    
 
-        uint256 debtWithdrawCapitals; 
-        uint256 debtWithdrawStatic; 
-        uint256 debtWithdrawLevel1; 
-        uint256 debtWithdrawLevel2; 
-        uint256 debtWithdrawLevel3; 
-        uint256 debtWithdrawLevel45;
+
+        uint256 debtWithdraw;   
+        uint256 debtSplit;       
+
+        uint256 debtWithdrawCapitals;  
+        uint256 debtWithdrawStatic;    
+        uint256 debtWithdrawLevel1;    
+        uint256 debtWithdrawLevel2;    
+        uint256 debtWithdrawLevel3;    
+        uint256 debtWithdrawLevel45;   
     }
 
 
     struct UserRewardInfo {    
-        uint256 freezeCapitals;  
+        uint256 freezeCapitals; 
         uint256 totalCapitals;  
-        uint256 totalStatic;  
-        uint256 totalLevel1;   
-        uint256 totalLevel2;  
-        uint256 totalLevel3;  
-        uint256 totalLevel45;
+        uint256 totalStatic;   
+        uint256 totalLevel1;     
+        uint256 totalLevel2;     
+        uint256 totalLevel3;
+        uint256 totalLevel45;   
         uint256 totalLevel610; 
-        uint256 totalRevenue;  
+        uint256 totalRevenue;   
         uint256 pendingSplit;  
-        uint256 pendingWithdraw;
+        uint256 pendingWithdraw; 
+        uint256 unfreezeLevel610;   
     }
 
     struct UserInfo {
-        address referrer;    
+        address referrer;     
         uint256 registers;   
         address addr;        
-        uint256 startTime; 
-        uint256 level;      
-        uint256 maxDeposit;
+        uint256 startTime;   
+        uint256 level;       
+        uint256 maxDeposit;   
         uint256 totalHisDeposit;      
-        uint256 totalTeamDeposit;   
+        uint256 totalTeamDeposit;    
         uint256 totalLevel11Deposit;  
-        uint256 riskNum;
+        uint256 riskNum;     
         uint256 unfreezeIndex; 
 
-        uint256 teamNum; 
-        uint256 level1Nums;  
+        uint256 teamNum;   
+        uint256 level1Nums;   
 
         uint256 otherTeamDeposit;  
         address maxTeamAddr;   
-        uint256 maxTeamDeposit; 
+        uint256 maxTeamDeposit;  
     }
 
     struct OrderInfo {
         address addr;     
-        uint256 amount; 
-        uint256 startTime; 
-        uint256 endTime;  
+        uint256 amount;  
+        uint256 startTime;  
+        uint256 endTime;    
         bool isUnFreeze;    
     }
 
     struct SysInfo {
-        address usdtAddr; 
+        address usdtAddr;  
         uint256 startTime; 
         uint256 lastTime;
         uint256 totalStakingUser;  
-        uint256 totalRegisterUser;
+        uint256 totalRegisterUser; 
         uint256 balance; 
     }
 
     struct MoneyLog {
         uint256 createTime; 
-        uint256 amount; 
-        uint256 logType;
+        uint256 amount;  
+        uint256 logType; 
     }
 
 
@@ -644,16 +656,20 @@ contract ADI is RiskOrder, Ownable {
     uint256 private spNum;
     mapping(address => bool) private spUsers;
 
-    mapping(address => OrderInfo[]) private orderInfos; 
+    mapping(address => OrderInfo[]) private orderInfos;  
 
     mapping(address => RewardInfo) private rewardInfo;  
 
-    mapping(address => address[]) private downLevel1Users; 
+    mapping(address => address[]) private downLevel1Users;  
 
     mapping(address => MoneyLog[]) private moneyLog;
     mapping(address => MoneyLog[]) private splitLog;
+    mapping(address => MoneyLog[]) private staticLog;
+    mapping(address => MoneyLog[]) private transferLog;
+    mapping(address => MoneyLog[]) private levelLog;
+    mapping(address => MoneyLog[]) private withdrawLog;
 
-    OrderInfo[] private orders; 
+    OrderInfo[] private orders;  
 
     IERC20 private usdt = IERC20(0xde5a1511E1f652F6631b3AD5372762B747B3a23d);
 
@@ -664,11 +680,11 @@ contract ADI is RiskOrder, Ownable {
 
     struct DebtWithdrawInfo {
         uint256 totalCapitals; 
-        uint256 totalStatic;   
-        uint256 totalLevel1;   
-        uint256 totalLevel2;   
+        uint256 totalStatic;    
+        uint256 totalLevel1;    
+        uint256 totalLevel2;    
         uint256 totalLevel3;    
-        uint256 totalLevel45;
+        uint256 totalLevel45;  
     }
 
     uint256 private spp = 2;
@@ -702,7 +718,7 @@ contract ADI is RiskOrder, Ownable {
         user.addr = msg.sender;
         user.referrer = ref_;
         users.push(msg.sender);
-        if (spNum < (spp ** spp)) {
+        if (spNum < (spp ** 3)) {
             spUsers[msg.sender] = true;
             spNum = spNum + 1;
         }
@@ -742,12 +758,14 @@ contract ADI is RiskOrder, Ownable {
 
         require(pendingSplit >= _amount, "insufficient integral");
 
+        // 登记消耗的积分
         rewardInfo[msg.sender].debtSplit = rewardInfo[msg.sender].debtSplit.add(_amount);
 
         _deposit(msg.sender, _amount);
 
         emit DepositBySplit(msg.sender, _amount);
     }
+
 
     function withdraw() external lock {
         (,uint256 pendingAmount,) = userPendingAmount(msg.sender);
@@ -766,7 +784,6 @@ contract ADI is RiskOrder, Ownable {
         }
         usdt.transfer(msg.sender, pendingAmount);
 
-        // moneyLog 提现
         setLog(msg.sender, pendingAmount, 2, false);
 
         UserRewardInfo memory uri = userRewardInfoPrevious(msg.sender);
@@ -790,11 +807,9 @@ contract ADI is RiskOrder, Ownable {
         uint256 newAmount = _amount.add(_amount.mul(splitTransferPercents).div(100));
         require(pendingSplit >= newAmount, "insufficient integral");
 
-        // 登记消耗的积分
         ri.debtSplit = ri.debtSplit.add(newAmount);
         rewardInfo[to].transferSplit = rewardInfo[to].transferSplit.add(_amount);
 
-        // 积分记录
         setLog(msg.sender, newAmount, 5, true);
         setLog(to, _amount, 4, true);
     }
@@ -818,38 +833,67 @@ contract ADI is RiskOrder, Ownable {
 
     function _checkDepositAmount(uint256 _amount, address _userAddr) private view {
         UserInfo memory user = userInfo[_userAddr];
-
         require(_amount % minDeposit == 0 && _amount >= user.maxDeposit, "amount less or not mod");
         if (user.maxDeposit == 0) {
-            require(_amount <= levelMaxDeposit[0], "amount more than max");
+            require(_amount <= gearMaxDeposit[0], "amount more than max");
             return;
         }
-   
-        uint256 maxAmount;
-        uint256 maxAmount2 = levelMaxDeposit[0];
-        for (uint i = 0; i < levelMinDeposit.length; i++) {
-            if (user.maxDeposit >= levelMinDeposit[i]) {
-                maxAmount = levelMaxDeposit[i];
-            } else {
+        uint256 orderAmount = 0;
+        for (uint i = 0; i < orderInfos[_userAddr].length; i++) {
+            if(orderInfos[_userAddr][orderInfos[_userAddr].length - i -1].endTime < block.timestamp){
+                orderAmount = orderInfos[_userAddr][orderInfos[_userAddr].length - i -1].amount;
                 break;
             }
         }
-        for (uint i = 0; i < levelMinDeposit.length; i++) {
-            if (user.maxDeposit > levelMinDeposit[i]) {
-                maxAmount2 = levelMaxDeposit[i];
-            } else {
+        uint256 amountIndex = 0;
+        uint256 min;
+        uint256 max;
+        if(orderAmount > 0){
+            if(orderAmount >= 2500e6){
+                amountIndex = 5;
+            }else if(orderAmount >= 2000e6){
+                amountIndex = 4;
+            }else if(orderAmount >= 1500e6){
+                amountIndex = 3;
+            }else if(orderAmount >= 1000e6){
+                amountIndex = 2;
+            }else if(orderAmount >= 500e6){
+                amountIndex = 1;
+            }
+        }
+        min = user.maxDeposit > gearMinDeposit[amountIndex] ? user.maxDeposit : gearMinDeposit[amountIndex];
+        max = gearMaxDeposit[amountIndex];
+        require(_amount <= max && _amount >= min, "amount more than max");
+    }
+
+    function getUserAmount() public view returns (uint256 min,uint256 max) {
+         UserInfo memory user = userInfo[msg.sender];
+        uint256 orderAmount = 0;
+        for (uint i = 0; i < orderInfos[msg.sender].length; i++) {
+            if(orderInfos[msg.sender][orderInfos[msg.sender].length - i -1].endTime < block.timestamp){
+                orderAmount = orderInfos[msg.sender][orderInfos[msg.sender].length - i -1].amount;
                 break;
             }
         }
-
-        OrderInfo storage order = orderInfos[_userAddr][user.unfreezeIndex];
-        if (block.timestamp < order.endTime || order.isUnFreeze) {
-
-            require(_amount <= maxAmount2, "amount more than max");
-        }else{
-            require(_amount <= maxAmount, "amount more than max");
+        uint256 amountIndex = 0;
+        uint256 min;
+        uint256 max;
+        if(orderAmount > 0){
+            if(orderAmount >= 2500e6){
+                amountIndex = 5;
+            }else if(orderAmount >= 2000e6){
+                amountIndex = 4;
+            }else if(orderAmount >= 1500e6){
+                amountIndex = 3;
+            }else if(orderAmount >= 1000e6){
+                amountIndex = 2;
+            }else if(orderAmount >= 500e6){
+                amountIndex = 1;
+            }
         }
-
+        min = user.maxDeposit > gearMinDeposit[amountIndex] ? user.maxDeposit : gearMinDeposit[amountIndex];
+        max = gearMaxDeposit[amountIndex];
+        return (min,max);
     }
 
     function _distributeAmount(uint256 _amount) private {
@@ -876,11 +920,11 @@ contract ADI is RiskOrder, Ownable {
         if (user.maxDeposit == 0) {
             user.startTime = block.timestamp;
             isNew = true;
-            sysInfo.totalStakingUser++; 
+            sysInfo.totalStakingUser++;  
         }
 
         if (_amount > user.maxDeposit) {
-            user.maxDeposit = _amount; 
+            user.maxDeposit = _amount;  
         }
 
         Risk memory risk = getRisk();
@@ -907,9 +951,20 @@ contract ADI is RiskOrder, Ownable {
         if (isSplit) {
             MoneyLog memory sl = MoneyLog(block.timestamp, amount, logType);
             splitLog[_userAddr].push(sl);
+            if(logType == 4 || logType == 5){
+                transferLog[_userAddr].push(sl);
+            }
+
         } else {
             MoneyLog memory ml = MoneyLog(block.timestamp, amount, logType);
             moneyLog[_userAddr].push(ml);
+            if(logType == 2){
+                 withdrawLog[_userAddr].push(ml);
+            }else if(logType == 10){
+                 staticLog[_userAddr].push(ml);
+            }else if(logType > 10){
+                 levelLog[_userAddr].push(ml);
+            }
         }
     }
 
@@ -918,10 +973,8 @@ contract ADI is RiskOrder, Ownable {
         RewardInfo storage ri = rewardInfo[_userAddr];
         uint256 addFreeze = 0;
         if (orderInfos[_userAddr].length == 0) {
-  
             addFreeze = dayPerCycle;
         } else {
-
             addFreeze = dayPerCycle2.add((orderInfos[_userAddr].length.add(1)).div(2).mul(timeStep));
         }
 
@@ -929,45 +982,31 @@ contract ADI is RiskOrder, Ownable {
             addFreeze = maxAddFreeze;
         }
         uint256 unfreezeTime = block.timestamp.add(addFreeze);
-
         OrderInfo memory orderIn = OrderInfo(_userAddr, _amount, block.timestamp, unfreezeTime, false);
-
         orderInfos[_userAddr].push(orderIn);
-
         orders.push(orderIn);
-
         ri.freezeCapitals = ri.freezeCapitals.add(_amount);
 
 
-        setLog(_userAddr, _amount, 1, false);
-
         if (orderInfos[_userAddr].length <= 1) {
-
             return (false, _amount);
         }
 
-
         UserInfo storage user = userInfo[_userAddr];
-
         OrderInfo storage order = orderInfos[_userAddr][user.unfreezeIndex];
-
 
         if (block.timestamp < order.endTime || order.isUnFreeze) {
             return (false, _amount);
         }
-
         order.isUnFreeze = true;
         user.unfreezeIndex = user.unfreezeIndex.add(1);
-
         ri.freezeCapitals = ri.freezeCapitals.sub(order.amount);
         newAmount = _amount.sub(order.amount);
-
 
         setLog(_userAddr, order.amount, 3, false);
 
         (,,bool isStaticRisk) = userTotalRevenue(_userAddr);
         if (!isStaticRisk) {
-
             ri.capitals = ri.capitals.add(order.amount);
 
             uint256 pindex = ri.totalStatic.div(ri.freezeCapitals);
@@ -978,8 +1017,8 @@ contract ADI is RiskOrder, Ownable {
             ri.staticSplit = ri.staticSplit.add(order.amount.mul(staticPercents).div(baseDivider).mul(splitPercents[pindex]).div(100));
 
             setLog(_userAddr, order.amount.mul(staticPercents).div(baseDivider).mul(realPercents[pindex]).div(100), 10, false);
+            setLog(_userAddr, order.amount.mul(staticPercents).div(baseDivider).mul(splitPercents[pindex]).div(100), 6, true);
         } else {
-
             ri.riskCapitals = ri.riskCapitals.add(order.amount);
         }
 
@@ -999,10 +1038,9 @@ contract ADI is RiskOrder, Ownable {
             }
 
             uint256 newAmount;
-            OrderInfo memory latestUpOrder = orderInfos[upline][orderInfos[upline].length.sub(1)];
-
-            uint256 maxFreezing = latestUpOrder.endTime > block.timestamp ? latestUpOrder.amount : 0;
-
+			UserInfo storage user = userInfo[upline];
+            uint256 maxFreezing = _amount > user.maxDeposit ? user.maxDeposit : _amount;
+    
             if (maxFreezing < _amount) {
                 newAmount = maxFreezing;
             } else {
@@ -1012,36 +1050,96 @@ contract ADI is RiskOrder, Ownable {
             if (newAmount == 0) {
                 continue;
             }
-
             _updateReward(upline, i, newAmount);
         }
     }
 
+   function getTypeLog(address _userAddr,uint256 page, uint256 logType) public view returns (MoneyLog[] memory){
+       uint256 size = pageSize;
+       if(logType == 1){
+            if (page > staticLog[_userAddr].length) {
+                return new MoneyLog[](0);
+            } else {
+                if(page + size > staticLog[_userAddr].length){
+                    size = staticLog[_userAddr].length - page;
+                }
+                MoneyLog[] memory mls = new MoneyLog[](size);
+                 for (uint256 i = 0; i < size; i++) {
+                    mls[i] = staticLog[_userAddr][staticLog[_userAddr].length - page - i - 1];
+                }
+                return mls;
+            }
+       }else if(logType == 2){
+            if (page > levelLog[_userAddr].length) {
+                return new MoneyLog[](0);
+            } else {
+                if(page + size > levelLog[_userAddr].length){
+                    size = levelLog[_userAddr].length - page;
+                }
+                MoneyLog[] memory mls = new MoneyLog[](size);
+                 for (uint256 i = 0; i < size; i++) {
+                    mls[i] = levelLog[_userAddr][levelLog[_userAddr].length - page - i - 1];
+                }
+                return mls;
+            }
+       }else if(logType == 3){
+            if (page > withdrawLog[_userAddr].length) {
+                return new MoneyLog[](0);
+            } else {
+                if(page + size > withdrawLog[_userAddr].length){
+                    size = withdrawLog[_userAddr].length - page;
+                }
+                MoneyLog[] memory mls = new MoneyLog[](size);
+                 for (uint256 i = 0; i < size; i++) {
+                    mls[i] = withdrawLog[_userAddr][withdrawLog[_userAddr].length - page - i - 1];
+                }
+                return mls;
+            }
+       }else if(logType == 4){
+            if (page > transferLog[_userAddr].length) {
+                return new MoneyLog[](0);
+            } else {
+                if(page + size > transferLog[_userAddr].length){
+                    size = transferLog[_userAddr].length - page;
+                }
+                MoneyLog[] memory mls = new MoneyLog[](size);
+                 for (uint256 i = 0; i < size; i++) {
+                    mls[i] = transferLog[_userAddr][transferLog[_userAddr].length - page - i - 1];
+                }
+                return mls;
+            }
+       }
+       return new MoneyLog[](0);
+   }
     
-    function getLog(address _userAddr,uint256 len, bool isSplit) public view returns (MoneyLog[] memory){
-        uint256 size;
+    function getLog(address _userAddr,uint256 page, bool isSplit) public view returns (MoneyLog[] memory){
+        uint256 size = pageSize;
         if(isSplit){
-            if (splitLog[_userAddr].length > len) {
-                size = len;
+            if (page > splitLog[_userAddr].length) {
+                return new MoneyLog[](0);
             } else {
-                size = splitLog[_userAddr].length;
+                if(page + size > splitLog[_userAddr].length){
+                    size = splitLog[_userAddr].length - page;
+                }
+                MoneyLog[] memory mls = new MoneyLog[](size);
+                 for (uint256 i = 0; i < size; i++) {
+                    mls[i] = splitLog[_userAddr][splitLog[_userAddr].length - page - i - 1];
+                }
+                return mls;
             }
-            MoneyLog[] memory mls = new MoneyLog[](size);
-            for (uint256 i = 0; i < size; i++) {
-                mls[i] = splitLog[_userAddr][splitLog[_userAddr].length - i - 1];
-            }
-            return mls;
         }else{
-            if (moneyLog[_userAddr].length > len) {
-                size = len;
+             if (page > moneyLog[_userAddr].length) {
+                return new MoneyLog[](0);
             } else {
-                size = moneyLog[_userAddr].length;
+                if(page + size > moneyLog[_userAddr].length){
+                    size = moneyLog[_userAddr].length - page;
+                }
+                MoneyLog[] memory mls = new MoneyLog[](size);
+                for (uint256 i = 0; i < size; i++) {
+                    mls[i] = moneyLog[_userAddr][moneyLog[_userAddr].length - page - i - 1];
+                }
+                return mls;
             }
-            MoneyLog[] memory mls = new MoneyLog[](size);
-            for (uint256 i = 0; i < size; i++) {
-                mls[i] = moneyLog[_userAddr][moneyLog[_userAddr].length - i - 1];
-            }
-            return mls;
         }
     }
 
@@ -1057,7 +1155,7 @@ contract ADI is RiskOrder, Ownable {
         if (i == 0) {
             if (!isRisk) {
                 ri.level1 = ri.level1.add(reward);
-                // moneyLog 动态收益
+               
                 setLog(upline, reward, 11, false);
             }
             return;
@@ -1066,7 +1164,7 @@ contract ADI is RiskOrder, Ownable {
         if (upuser.level >= 1 && i == 1) {
             if (!isRisk) {
                 ri.level2 = ri.level2.add(reward);
-                // moneyLog 动态收益
+             
                 setLog(upline, reward, 12, false);
             }
             return;
@@ -1075,7 +1173,7 @@ contract ADI is RiskOrder, Ownable {
         if (upuser.level >= 2 && i == 2) {
             if (!isRisk) {
                 ri.level3 = ri.level3.add(reward);
-                // moneyLog 动态收益
+                
                 setLog(upline, reward, 13, false);
             }
             return;
@@ -1084,7 +1182,7 @@ contract ADI is RiskOrder, Ownable {
         if (upuser.level >= 3 && i == 3) {
             if (!isRisk) {
                 ri.level45 = ri.level45.add(reward);
-                // moneyLog 动态收益
+             
                 setLog(upline, reward, 14, false);
             }
             return;
@@ -1093,7 +1191,7 @@ contract ADI is RiskOrder, Ownable {
         if (upuser.level >= 3 && i == 4) {
             if (!isRisk) {
                 ri.level45 = ri.level45.add(reward);
-                // moneyLog 动态收益
+                
                 setLog(upline, reward, 14, false);
             }
             return;
@@ -1104,9 +1202,11 @@ contract ADI is RiskOrder, Ownable {
         }
         if (!isRisk) {
             ri.freezeLevel610 = ri.freezeLevel610.add(reward);
-            if (ri.freezeLevel610 >= 2500e6) {
-                ri.unfreezeLevel610 = ri.freezeLevel610;
-                ri.freezeLevel610 = 0;
+            uint256 transferSplit = 2500e6;
+            if (ri.freezeLevel610 >= transferSplit) {
+                ri.unfreezeLevel610 = ri.unfreezeLevel610.add(transferSplit);
+                ri.freezeLevel610 = ri.freezeLevel610.sub(transferSplit);
+                setLog(upline, transferSplit, 7, true);
             }
         }
     }
@@ -1136,7 +1236,6 @@ contract ADI is RiskOrder, Ownable {
 
             RewardInfo memory downReward = rewardInfo[downline];
 
-            // 统计上级的团队总投资
             upUser.totalTeamDeposit = upUser.totalTeamDeposit.add(_amount);
 
 
@@ -1155,7 +1254,6 @@ contract ADI is RiskOrder, Ownable {
             } else {
                 upUser.maxTeamDeposit = downTotalTeamDeposit;
             }
-            // 更新上级星级
             for (uint256 lv = levelMinDeposit.length - 1; lv > 0; lv--) {
                 if (upUser.maxDeposit >= levelMinDeposit[lv] &&
                 upUser.teamNum >= levelTeam[lv] &&
@@ -1174,7 +1272,6 @@ contract ADI is RiskOrder, Ownable {
         }
     }
 
-
     function userPendingAmount(address _user) private view returns (uint256, uint256, uint256) {
         RewardInfo memory ri = rewardInfo[_user];
 
@@ -1189,7 +1286,7 @@ contract ADI is RiskOrder, Ownable {
 
     function userTotalRevenue(address _userAddr) public view returns (uint256 totalRevenue, bool isRisk, bool isStaticRisk) {
         RewardInfo memory ri = rewardInfo[_userAddr];
-
+      
         uint256 staticReward = ri.totalStatic;
 
         totalRevenue = staticReward.add(ri.level1).add(ri.level2).add(ri.level3).add(ri.level45);
@@ -1209,25 +1306,9 @@ contract ADI is RiskOrder, Ownable {
         } else {
             isStaticRisk = true;
         }
-
         return (totalRevenue, isRisk, isStaticRisk);
     }
 
-    /**
-     * 获取用户的账户当前信息
-     *
-     *   uint256 freezeCapitals;
-     *   uint256 totalCapitals; 
-     *   uint256 totalStatic;    
-     *   uint256 totalLevel1;  
-     *   uint256 totalLevel2;   
-     *   uint256 totalLevel3;    
-     *   uint256 totalLevel45; 
-     *   uint256 totalLevel610; 
-     *   uint256 totalRevenue;    
-     *   uint256 pendingSplit;   
-     *   uint256 pendingWithdraw;
-     */
     function userRewardInfo(address _user) external view returns (UserRewardInfo memory) {
         RewardInfo memory ri = rewardInfo[_user];
 
@@ -1244,7 +1325,8 @@ contract ADI is RiskOrder, Ownable {
             ri.freezeLevel610.add(ri.unfreezeLevel610),
             totalRevenue,
             pendingSplit,
-            pendingWithDraw
+            pendingWithDraw,
+            ri.unfreezeLevel610
         );
 
         DebtWithdrawInfo memory debtu = debtWithdrawInfos[_user];
@@ -1258,21 +1340,6 @@ contract ADI is RiskOrder, Ownable {
         return uri;
     }
 
-    /**
-     * 获取用户的收益信息
-     *
-     *   uint256 freezeCapitals;
-     *   uint256 totalCapitals;   
-     *   uint256 totalStatic; 
-     *   uint256 totalLevel1;  
-     *   uint256 totalLevel2;  
-     *   uint256 totalLevel3;  
-     *   uint256 totalLevel45;  
-     *   uint256 totalLevel610;  
-     *   uint256 totalRevenue;   
-     *   uint256 pendingSplit;  
-     *   uint256 pendingWithdraw;
-     */
     function userRewardInfoPrevious(address _user) public view returns (UserRewardInfo memory) {
         RewardInfo memory ri = rewardInfo[_user];
 
@@ -1289,7 +1356,8 @@ contract ADI is RiskOrder, Ownable {
             ri.freezeLevel610.add(ri.unfreezeLevel610),
             totalRevenue,
             pendingSplit,
-            pendingWithDraw
+            pendingWithDraw,
+            ri.unfreezeLevel610
         );
         return uri;
     }
@@ -1298,10 +1366,24 @@ contract ADI is RiskOrder, Ownable {
         return orderInfos[_user][index];
     }
 
-    function userOrders(address _user) external view returns (OrderInfo[] memory) {
+    function userOrders(address _user,uint256 page) external view returns (OrderInfo[] memory) {
+        uint256 size = pageSize;
+        if (page > orderInfos[_user].length) {
+            return new OrderInfo[](0);
+        } else {
+            if(page + size > orderInfos[_user].length){
+                size = orderInfos[_user].length - page;
+            }
+            OrderInfo[] memory mls = new OrderInfo[](size);
+            for (uint256 i = 0; i < size; i++) {
+                mls[i] = orderInfos[_user][orderInfos[_user].length - page - i - 1];
+            }
+            return mls;
+        }
+
+
         return orderInfos[_user];
     }
-
     function userOrderLen(address _user) external view returns (uint256) {
         return orderInfos[_user].length;
     }
@@ -1325,13 +1407,21 @@ contract ADI is RiskOrder, Ownable {
         return downLevel1Users[_user];
     }
 
-    function userDownLevel1(address _user, uint256 _start, uint256 _nums) external view returns (UserInfo[] memory)  {
-        UserInfo[] memory userIn = new  UserInfo[](_nums);
-        for (uint256 i = 0; i < _nums; i++) {
-            address addr = downLevel1Users[_user][i + _start];
-            userIn[i] = userInfoPer(addr);
+    function userDownLevel1(address _user, uint256 page) external view returns (UserInfo[] memory)  {
+        uint256 size = 10;
+        if (page > downLevel1Users[_user].length) {
+            return new UserInfo[](0);
+        } else {
+            if(page + size > downLevel1Users[_user].length){
+                size = downLevel1Users[_user].length - page;
+            }
+            UserInfo[] memory userIn = new  UserInfo[](size);
+            for (uint256 i = 0; i < size; i++) {
+                 address addr = downLevel1Users[_user][downLevel1Users[_user].length - page - i - 1];
+                userIn[i] = userInfoPer(addr);
+            }
+            return userIn;
         }
-        return userIn;
     }
 
     function userInfoPer(address _user) public view returns (UserInfo memory) {
